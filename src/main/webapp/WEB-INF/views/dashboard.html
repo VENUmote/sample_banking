@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Net Banking</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="dashboard">
+<header id="app-nav" class="navbar"></header>
+<div class="layout">
+    <aside id="app-sidebar" class="sidebar"></aside>
+
+    <main class="content">
+        <div class="page-header">
+            <div>
+                <h1>Dashboard</h1>
+                <p class="muted">Welcome, <strong id="customerName">...</strong></p>
+            </div>
+            <div class="header-actions">
+                <a href="deposit" class="btn btn-success">+ Deposit</a>
+                <a href="withdraw" class="btn btn-outline">- Withdraw</a>
+            </div>
+        </div>
+
+        <!-- Account balance card -->
+        <section class="balance-card">
+            <div>
+                <p class="balance-label">Current Available Balance</p>
+                <p class="balance-amount" id="currentBalance">&#8377;0.00</p>
+                <p class="balance-verify" id="balanceVerify"></p>
+            </div>
+            <div class="balance-meta">
+                <div><span>Account Number</span><strong id="accountNumber">-</strong></div>
+                <div><span>Account Type</span><strong id="accountType">-</strong></div>
+                <div><span>Customer Name</span><strong id="customerNameCard">-</strong></div>
+            </div>
+        </section>
+
+        <!-- Credit / debit summary cards -->
+        <section class="stat-grid">
+            <article class="stat-card credit">
+                <p class="stat-label">Total Amount Credited</p>
+                <p class="stat-value" id="totalCredit">&#8377;0.00</p>
+            </article>
+            <article class="stat-card debit">
+                <p class="stat-label">Total Amount Debited</p>
+                <p class="stat-value" id="totalDebit">&#8377;0.00</p>
+            </article>
+            <article class="stat-card neutral">
+                <p class="stat-label">Total Transactions</p>
+                <p class="stat-value" id="totalTransactions">0</p>
+            </article>
+        </section>
+
+        <!-- Recent transactions -->
+        <section class="panel">
+            <div class="panel-header">
+                <h2>Recent Transactions</h2>
+                <a href="transactions" class="link">View all &rarr;</a>
+            </div>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                    <tr>
+                        <th>Txn ID</th>
+                        <th>Date &amp; Time</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th class="num">Amount</th>
+                        <th class="num">Balance After</th>
+                    </tr>
+                    </thead>
+                    <tbody id="recentBody">
+                    <tr><td colspan="6" class="empty">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="js/common.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

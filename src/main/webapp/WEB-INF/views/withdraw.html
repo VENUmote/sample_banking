@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdraw Money | Net Banking</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="withdraw">
+<header id="app-nav" class="navbar"></header>
+<div class="layout">
+    <aside id="app-sidebar" class="sidebar"></aside>
+
+    <main class="content">
+        <div class="page-header">
+            <div>
+                <h1>Withdraw Money</h1>
+                <p class="muted">Debit money from your account</p>
+            </div>
+        </div>
+
+        <div class="form-layout">
+            <section class="panel form-panel">
+                <form id="txnForm" data-type="withdraw" novalidate>
+                    <div class="form-group">
+                        <label for="accountNumber">Account Number</label>
+                        <input type="text" id="accountNumber" name="accountNumber" readonly>
+                        <small class="hint">Withdrawals can only be made from your own account.</small>
+                        <small class="field-error" data-error-for="accountNumber"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Withdrawal Amount (&#8377;)</label>
+                        <input type="text" id="amount" name="amount" inputmode="decimal" placeholder="e.g. 1500.00" autocomplete="off" required>
+                        <small class="field-error" data-error-for="amount"></small>
+                    </div>
+                    <div class="quick-amounts" data-for="amount">
+                        <button type="button" data-amount="500">&#8377;500</button>
+                        <button type="button" data-amount="1000">&#8377;1,000</button>
+                        <button type="button" data-amount="1500">&#8377;1,500</button>
+                        <button type="button" data-amount="2000">&#8377;2,000</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" id="description" name="description" maxlength="255" placeholder="e.g. ATM, Rent, Groceries">
+                        <small class="field-error" data-error-for="description"></small>
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-block">Withdraw Money</button>
+                </form>
+            </section>
+
+            <aside class="panel info-panel">
+                <p class="balance-label dark">Current Available Balance</p>
+                <p class="info-balance" id="currentBalance">&#8377;0.00</p>
+                <hr>
+                <ul class="info-list">
+                    <li>You cannot withdraw more than your available balance.</li>
+                    <li>Only positive amounts are accepted.</li>
+                    <li>Maximum &#8377;10,00,000 per transaction.</li>
+                    <li>Declined attempts are recorded for audit.</li>
+                </ul>
+            </aside>
+        </div>
+    </main>
+</div>
+
+<script src="js/common.js"></script>
+<script src="js/transaction-form.js"></script>
+</body>
+</html>

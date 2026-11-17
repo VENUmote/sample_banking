@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Net Banking</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-body" data-page="login">
+<main class="auth-wrapper">
+    <section class="auth-hero">
+        <div class="brand-logo">NB</div>
+        <h2>Net Banking</h2>
+        <p>Secure, simple banking - check balances, deposit, withdraw and track every rupee, anytime.</p>
+        <ul class="hero-points">
+            <li>BCrypt-protected passwords</li>
+            <li>Real-time balance updates</li>
+            <li>Complete transaction history</li>
+        </ul>
+    </section>
+
+    <section class="auth-card">
+        <h1>Sign In</h1>
+        <p class="muted">Log in to your Net Banking account</p>
+
+        <form id="loginForm" novalidate>
+            <div class="form-group">
+                <label for="identifier">Username or Email</label>
+                <input type="text" id="identifier" name="identifier" autocomplete="username" maxlength="150" required>
+                <small class="field-error" data-error-for="identifier"></small>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="password-wrap">
+                    <input type="password" id="password" name="password" autocomplete="current-password" maxlength="128" required>
+                    <button type="button" class="toggle-password" data-target="password" aria-label="Show password">Show</button>
+                </div>
+                <small class="field-error" data-error-for="password"></small>
+            </div>
+            <div class="form-row-between">
+                <span></span>
+                <a href="forgot-password" class="link">Forgot Password?</a>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+
+        <p class="auth-switch">New to Net Banking? <a href="signup" class="link">Create New Account</a></p>
+    </section>
+</main>
+
+<script src="js/common.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
