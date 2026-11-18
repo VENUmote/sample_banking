@@ -131,6 +131,27 @@ It runs `mvn clean package`, copies the WAR into `%CATALINA_HOME%\webapps`, and 
 
 Copy `target\NetBanking.war` into `C:\apache-tomcat-10.1.x\webapps\` and run `C:\apache-tomcat-10.1.x\bin\startup.bat`.
 
+### Deploy the complete application to Railway
+
+The `Dockerfile` packages the WAR into Tomcat 10.1 and listens on Railway's assigned `PORT`.
+Deploy the GitHub repository as a Docker service and add a MySQL service to the same Railway project.
+
+Set these variables on the application service, using Railway's variable references for the
+MySQL service (named `MySQL` here):
+
+```text
+DB_URL=jdbc:mysql://${{MySQL.MYSQLHOST}}:${{MySQL.MYSQLPORT}}/${{MySQL.MYSQLDATABASE}}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&characterEncoding=UTF-8
+DB_USER=${{MySQL.MYSQLUSER}}
+DB_PASSWORD=${{MySQL.MYSQLPASSWORD}}
+```
+
+Run `database/schema-hosted.sql` once against the newly created MySQL database before using the
+app. This hosted schema does not drop tables; do not use `database/schema.sql` on an existing
+database because it drops and recreates the application tables.
+
+After the service deploys, generate its public domain in Railway. The app is served at `/`.
+Never commit database credentials or use this educational project with real banking data.
+
 ### Step 8 – Open the application
 
 👉 **http://localhost:8080/NetBanking/**

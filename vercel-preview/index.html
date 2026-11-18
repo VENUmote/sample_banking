@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Static visual preview of the Net Banking application.">
+    <title>Net Banking | Preview</title>
+    <style>
+        :root {
+            color-scheme: light;
+            font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+            color: #1c2b45;
+            background: #f3f7ff;
+            font-synthesis: none;
+            text-rendering: optimizeLegibility;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            background: linear-gradient(135deg, #0d3b8c, #1a63d6 58%, #2f7cf6);
+        }
+
+        main {
+            width: min(100%, 900px);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            border-radius: 20px;
+            background: #fff;
+            box-shadow: 0 24px 70px #06245c55;
+        }
+
+        .hero {
+            padding: 48px 40px;
+            color: #fff;
+            background: linear-gradient(160deg, #0a2a66, #1250b8);
+        }
+
+        .logo {
+            width: 52px;
+            height: 52px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            background: #fff;
+            color: #1250b8;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        h1, h2, p { margin-top: 0; }
+        h1 { margin-bottom: 10px; color: #0a2a66; font-size: 1.8rem; }
+        h2 { margin: 24px 0 10px; font-size: 1.6rem; }
+        .hero p { color: #e6efff; line-height: 1.7; }
+        .preview {
+            align-self: center;
+            padding: 48px;
+        }
+
+        .eyebrow {
+            margin-bottom: 10px;
+            color: #1a63d6;
+            font-size: .78rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .notice {
+            margin: 22px 0;
+            padding: 16px;
+            border: 1px solid #f1d08a;
+            border-radius: 10px;
+            background: #fff8e8;
+            color: #694b0c;
+            line-height: 1.55;
+        }
+
+        ul { margin: 0; padding-left: 20px; color: #53627a; line-height: 1.9; }
+        .note { margin: 22px 0 0; color: #66758f; font-size: .9rem; line-height: 1.6; }
+
+        @media (max-width: 680px) {
+            body { padding: 14px; }
+            main { grid-template-columns: 1fr; }
+            .hero, .preview { padding: 32px 26px; }
+            h2 { margin-top: 18px; }
+        }
+    </style>
+</head>
+<body>
+<main>
+    <section class="hero">
+        <div class="logo" aria-hidden="true">NB</div>
+        <h2>Net Banking</h2>
+        <p>A responsive banking application built with Java, Jakarta Servlets, MySQL, and Tomcat.</p>
+        <p>Sign-in, account management, deposits, withdrawals, and transaction history are provided by its Java backend.</p>
+    </section>
+    <section class="preview">
+        <p class="eyebrow">Vercel static preview</p>
+        <h1>Application preview</h1>
+        <p>This deployment is a visual preview only. The Java/Tomcat backend is not running on Vercel.</p>
+        <div class="notice" role="note">
+            Banking actions are unavailable here. Do not enter account details or passwords on this preview.
+        </div>
+        <ul>
+            <li>Authentication and account creation are disabled</li>
+            <li>Balances and transaction history are not connected</li>
+            <li>No banking data is read or submitted by this page</li>
+        </ul>
+        <p class="note">For the complete application, run the WAR on a Java host with Tomcat and configure a hosted MySQL database.</p>
+    </section>
+</main>
+</body>
+</html>
